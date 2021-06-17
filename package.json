@@ -1,0 +1,29 @@
+{
+  "name": "15.4-Php-Server-Environment",
+  "version": "1.0.0",
+  "description": "A small login page made with PHP",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "prod": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricard-Garcia/php-session-environment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricard-Garcia/php-session-environment/issues"
+  },
+  "homepage": "https://github.com/Ricard-Garcia/php-session-environment#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.35.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.1"
+  }
+}
