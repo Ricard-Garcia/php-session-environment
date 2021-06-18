@@ -4,8 +4,6 @@
   "description": "A small login page made with PHP",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "prod": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +17,7 @@
     "url": "https://github.com/Ricard-Garcia/php-session-environment/issues"
   },
   "homepage": "https://github.com/Ricard-Garcia/php-session-environment#readme",
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5",
-    "sass": "^1.35.1"
-  },
   "dependencies": {
-    "bootstrap": "^5.0.1"
+    "bootstrap": "^4.6.0"
   }
 }
