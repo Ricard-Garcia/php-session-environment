@@ -1,6 +1,12 @@
 <?php
 // Starting the session
-    session_start();
+session_start();
+
+// Redirect if there's no "username" $_SESSION variable
+if (!isset($_SESSION["username"])){
+  header("Location:./index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +52,7 @@
   <span class="badge badge-pill badge-light"><?= $_SESSION["username"] ?></span>
   <ul class="d-flex navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
+      <a class="nav-link" href="./modules/logout.php">Log out</a>
     </li>
   </ul>
 </nav>
