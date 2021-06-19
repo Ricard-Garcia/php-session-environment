@@ -1,4 +1,5 @@
 <?php
+// Starting the session
 session_start();
 
 // Eliminar totes les variables de sessió

@@ -17,7 +17,6 @@ if (password_verify($pass, $passHashDb) && $email == $emailDb){
     $_SESSION["username"] = $email;
     header("Location:../panel.php");
 } else {
-    echo "Not valid email and/or password";
-    //header("Location:../index.php");
-
+    $_SESSION["loginError"] = "Wrong email or password.";
+    header("Location:../index.php");
 }
