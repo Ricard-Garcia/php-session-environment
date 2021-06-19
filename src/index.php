@@ -17,6 +17,11 @@ if (isset($_GET["logout"])){
 if (isset($_SESSION["unabledAccess"])){
   $infoAccess = $_SESSION["unabledAccess"];
 }
+
+// Redirect to index if user logged
+if (isset($_SESSION["email"])){
+  header ("Location:./panel.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +59,9 @@ if (isset($_SESSION["unabledAccess"])){
     <form method="POST" action="./modules/login.php" class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" autocomplete="off" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" autocomplete="off" required>
         <?php
         // Adding loginError only if email/password are wrong
         if (isset($infoLogin)){
