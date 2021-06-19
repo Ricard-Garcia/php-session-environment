@@ -1,9 +1,17 @@
 <?php
 session_start();
 
+// Login error
 if (isset($_SESSION["loginError"])){
   $infoLogin = $_SESSION["loginError"];
 };
+
+// Logout message
+if (isset($_GET["logout"])){
+  if ($_GET["logout"]){
+    $infoLogout = "You've logged out correctly.";
+  }
+}
 
 ?>
 
@@ -39,7 +47,7 @@ if (isset($_SESSION["loginError"])){
     </style>
 </head>
 <body>
-    <form method="POST" action="./modules/login.php" class="form-signin" autocomplete="off">
+    <form method="POST" action="./modules/login.php" class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -48,10 +56,16 @@ if (isset($_SESSION["loginError"])){
         <?php
         // Adding loginError only if email/password are wrong
         if (isset($infoLogin)){
-        echo "<div class='alert alert-warning' role='alert'>";
-        echo $infoLogin;
-        echo "</div>";
+          echo "<div class='alert alert-warning' role='alert'>";
+          echo $infoLogin;
+          echo "</div>";
         }
+        // Adding loginError only if email/password are wrong
+        elseif (isset($infoLogout)){
+          echo "<div class='alert alert-info' role='alert'>";
+          echo $infoLogout;
+          echo "</div>";
+        };
         ?>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
