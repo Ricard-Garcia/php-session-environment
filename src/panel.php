@@ -5,8 +5,8 @@ session_start();
 // Redirect if there's no "username" $_SESSION variable
 if (!isset($_SESSION["username"])){
   header("Location:./index.php");
+  $_SESSION["unabledAccess"] = "You must log in to access this area.";
 }
-
 ?>
 
 <!DOCTYPE html>

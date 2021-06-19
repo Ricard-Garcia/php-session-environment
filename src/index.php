@@ -13,6 +13,10 @@ if (isset($_GET["logout"])){
   }
 }
 
+// Not accessible area
+if (isset($_SESSION["unabledAccess"])){
+  $infoAccess = $_SESSION["unabledAccess"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +68,12 @@ if (isset($_GET["logout"])){
         elseif (isset($infoLogout)){
           echo "<div class='alert alert-info' role='alert'>";
           echo $infoLogout;
+          echo "</div>";
+        }
+        // Adding loginError only if email/password are wrong
+        elseif (isset($infoAccess)){
+          echo "<div class='alert alert-danger' role='alert'>";
+          echo $infoAccess;
           echo "</div>";
         };
         ?>
