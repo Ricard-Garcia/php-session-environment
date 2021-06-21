@@ -15,6 +15,8 @@ function checkSession()
         if (isset($_SESSION["email"])) {
             header("Location:./panel.php");
         } else {
+            // Access error
+            if ($alert = checkAccessError()) return $alert;
             // Login error
             if ($alert = checkLoginError()) return $alert;
             // Login error
@@ -27,13 +29,22 @@ function checkSession()
         if (!isset($_SESSION["email"])) {
             echo "Not registered";
             // Message if there are no permissions
-            $_SESSION["loginError"] = "You must log in to access this area.";
+            $_SESSION["accessError"] = "You must log in to access this area.";
             header("Location:./index.php");
         }
     };
 }
 
 // Diferent possible errors
+function checkAccessError()
+{
+    if (isset($_SESSION["accessError"])) {
+        $errorText = $_SESSION["accessError"];
+        unset($_SESSION["accessError"]);
+        return ["type" => "danger", "text" => $errorText];
+    }
+}
+
 function checkLoginError()
 {
     if (isset($_SESSION["loginError"])) {
