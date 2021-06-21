@@ -1,5 +1,6 @@
 <?php
 require_once("./modules/sessioncontrol.php");
+// echo "Charged panel";
 checkSession();
 ?>
 

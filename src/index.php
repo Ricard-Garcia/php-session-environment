@@ -47,6 +47,7 @@ $alert = checkSession();
     <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" autocomplete="off" required>
     <?= ($alert) ? "<div class='alert alert-$alert[type]' role='alert'>$alert[text]</div>" : "" ?>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="text-muted text-center mt-4">©2021, Ricard Garcia</p>
   </form>
 </body>
 

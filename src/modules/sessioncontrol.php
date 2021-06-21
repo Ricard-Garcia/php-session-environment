@@ -10,7 +10,7 @@ function checkSession()
     // Get basename URI or Query param
     $urlFile = basename($_SERVER["REQUEST_URI"], "?" . $_SERVER["QUERY_STRING"]);
 
-    if ($urlFile == "index.php" || "src") {
+    if ($urlFile == "index.php" || $urlFile == "src") {
         // Redirect to index if user logged
         if (isset($_SESSION["email"])) {
             header("Location:./panel.php");
@@ -25,6 +25,7 @@ function checkSession()
     } else {
         // Redirect if there's no email
         if (!isset($_SESSION["email"])) {
+            echo "Not registered";
             // Message if there are no permissions
             $_SESSION["loginError"] = "You must log in to access this area.";
             header("Location:./index.php");
@@ -72,6 +73,9 @@ function checkUser(string $email, string $pass)
 
 function hasUser()
 {
+    // Start session
+    session_start();
+
     $email = $_POST["email"];
     $user = explode("@", $_POST["email"])[0];
     $pass = $_POST["pass"];
