@@ -21,7 +21,7 @@ function checkSession()
             if ($alert = checkLoginError()) return $alert;
             // Login error
             if ($alert = checkLoginInfo()) return $alert;
-            // Logout
+            // Logout message
             if ($alert = checkLogout()) return $alert;
         }
     } else {
